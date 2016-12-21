@@ -28,7 +28,17 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, ADDR, (err) => {
+// server
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+  socket.on('add user', ({ username }) => {
+    console.log(`new user added: ${username}`);
+  });
+});
+
+server.listen(PORT, ADDR, (err) => {
   if (err) {
     console.log(err);
     return;
