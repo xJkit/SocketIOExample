@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-vanilla",
+  "name": "socket-io-example",
   "version": "1.0.0",
-  "description": "Simple react app",
+  "description": "Simple socket.io SPA written in React",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
